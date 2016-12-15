@@ -1,4 +1,7 @@
 const currencyMatcher = /^(?:([A-Z]{3}) ?)?(?:([^\d ]+?) ?)?(((?:\d{1,3}([,. ’]))*?\d{1,})(([,.])\d{1,2})?)(?: ?([^\d ]+?))??(?: ?([A-Z]{3}))?$/;
+const gr = /^\d{1,3}([,. ’]\d{3})*$/; // validate groups
+const ind = /^\d{1,2}(,\d{2})*(,\d{3})?$/; // exception for indina number format
+
 module.exports = function parseCurrency (priceStr) {
   if (!priceStr || !priceStr.match) return null;
   var match = priceStr.match(currencyMatcher);
@@ -6,6 +9,10 @@ module.exports = function parseCurrency (priceStr) {
   var groupSeparator = match[5] || '';
   var decimalSeparator = match[7] || '';
   if (groupSeparator === decimalSeparator && decimalSeparator) {
+    return null;
+  }
+  var integer = match[4];
+  if (groupSeparator && !integer.match(gr) && !integer.match(ind)) {
     return null;
   }
   var value = match[3];
@@ -23,7 +30,7 @@ module.exports = function parseCurrency (priceStr) {
   return {
     raw: priceStr,
     value: numericVal,
-    integer: match[4] || '',
+    integer: integer || '',
     decimals: match[6] || '',
     currency: match[1] || match[9] || '',
     symbol: match[2] || match[8] || '',

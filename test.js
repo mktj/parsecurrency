@@ -167,6 +167,30 @@ describe('utils/parseCurrency', () => {
     });
   });
 
+  it('should distinguish decimal / group separator', () => {
+    expect(parseCurrency('100,00')).to.deep.equal({
+      raw: '100,00',
+      value: 100,
+      integer: '100',
+      decimals: ',00',
+      currency: '',
+      symbol: '',
+      decimalSeparator: ',',
+      groupSeparator: ''
+    });
+
+    expect(parseCurrency('100,000')).to.deep.equal({
+      raw: '100,000',
+      value: 100000,
+      integer: '100,000',
+      decimals: '',
+      currency: '',
+      symbol: '',
+      decimalSeparator: '',
+      groupSeparator: ','
+    });
+  });
+
   it('should work with real world examples', () => {
     expect(parseCurrency('¥578,349,027')).to.deep.equal({
       raw: '¥578,349,027',
@@ -192,16 +216,28 @@ describe('utils/parseCurrency', () => {
   });
 
   it('should parse indian numbering system', () => {
-    expect(parseCurrency('₹1,50,000')).to.deep.equal({
+    expect(parseCurrency('₹1,50,000.00')).to.deep.equal({
       currency: '',
-      decimalSeparator: '',
-      decimals: '',
+      decimalSeparator: '.',
+      decimals: '.00',
       groupSeparator: ',',
       integer: '1,50,000',
-      raw: '₹1,50,000',
+      raw: '₹1,50,000.00',
       symbol: '₹',
       value: 150000
     });
+  });
+
+  it('should invalidate non matching number grouping', () => {
+    expect(parseCurrency('$ 100,000,0,00.00')).to.equal(null);
+  });
+
+  it('should fail to parse currencies with 3 decimal points (BHD, IQD, JOD, KWD, OMR, TND)', () => {
+    expect(parseCurrency('1,234.567')).to.equal(null);
+  });
+
+  it('should fail to parse 2 character group separator (Swaziland, Lilangeni)', () => {
+    expect(parseCurrency('1, 000.00')).to.equal(null);
   });
 
   it('shoud not match invalid currency numbers', () => {

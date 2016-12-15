@@ -1,4 +1,5 @@
 # parsecurrency
+[![Build Status](https://travis-ci.org/mktj/parsecurrency.svg?branch=master)](https://travis-ci.org/mktj/parsecurrency)
 
 Node / browser currency parser.
 

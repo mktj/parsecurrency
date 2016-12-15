@@ -1,0 +1,21 @@
+{
+  "name": "parsecurrency",
+  "version": "0.1.0",
+  "description": "Currency string parser utility",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint *.js",
+    "test": "mocha test.js",
+    "pretest": "npm run lint"
+  },
+  "author": "Michal Kot",
+  "license": "MIT",
+  "keywords": ["money", "currency", "format", "utility", "finance"],
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "eslint": "^3.12.2",
+    "mocha": "^3.2.0"
+  },
+  "dependencies": {},
+  "repository": "mktj/parsecurrency"
+}

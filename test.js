@@ -40,7 +40,7 @@ describe('utils/parseCurrency', () => {
     });
   });
 
-  it('should parse strings with currency iso code', () => {
+  it('should parse strings with currency ISO code', () => {
     expect(parseCurrency('160,000.00 EUR')).to.deep.equal({
       raw: '160,000.00 EUR',
       value: 160000.00,
@@ -215,7 +215,7 @@ describe('utils/parseCurrency', () => {
     });
   });
 
-  it('should parse indian numbering system', () => {
+  it('should parse Indian numbering system', () => {
     expect(parseCurrency('₹1,50,000.00')).to.deep.equal({
       currency: '',
       decimalSeparator: '.',
@@ -240,7 +240,7 @@ describe('utils/parseCurrency', () => {
     expect(parseCurrency('1, 000.00')).to.equal(null);
   });
 
-  it('shoud not match invalid currency numbers', () => {
+  it('should not match invalid currency numbers', () => {
     expect(parseCurrency('')).to.equal(null);
     expect(parseCurrency('1000.0000')).to.equal(null);
     expect(parseCurrency('10000,00000.00')).to.equal(null);

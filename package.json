@@ -1,6 +1,6 @@
 {
   "name": "parsecurrency",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Currency string parser utility",
   "main": "index.js",
   "scripts": {

@@ -1,6 +1,6 @@
 {
   "name": "parsecurrency",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Currency string parser utility",
   "main": "index.js",
   "scripts": {
@@ -10,7 +10,13 @@
   },
   "author": "Michal Kot",
   "license": "MIT",
-  "keywords": ["money", "currency", "format", "utility", "finance"],
+  "keywords": [
+    "money",
+    "currency",
+    "format",
+    "utility",
+    "finance"
+  ],
   "devDependencies": {
     "chai": "^3.5.0",
     "eslint": "^3.12.2",

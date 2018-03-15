@@ -10,6 +10,7 @@ Extensive currency parsing utility designed to extract value, decimal separator,
 Works with:
 - international currency formatting (SFr 12'345.67 or 10 000,00zł)
 - indian number system (₹1,50,000.00)
+- parsing CHF Swiss Franc (9'000.00 CHF)
 - currency symbols as a prefix / suffix with or without a space
 - currency code before or after the value, with or without space
 

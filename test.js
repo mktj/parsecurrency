@@ -213,6 +213,17 @@ describe('utils/parseCurrency', () => {
       decimalSeparator: '.',
       groupSeparator: '’'
     });
+
+    expect(parseCurrency('10\'000 CHF')).to.deep.equal({
+      raw: '10\'000 CHF',
+      value: 10000,
+      integer: '10\'000',
+      decimals: '',
+      currency: 'CHF',
+      symbol: '',
+      decimalSeparator: '',
+      groupSeparator: '\''
+    });
   });
 
   it('should parse Indian numbering system', () => {

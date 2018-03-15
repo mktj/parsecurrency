@@ -1,5 +1,5 @@
-var currencyMatcher = /^(?:([A-Z]{3}) ?)?(?:([^\d ]+?) ?)?(((?:\d{1,3}([,. ’]))*?\d{1,})(([,.])\d{1,2})?)(?: ?([^\d ]+?))??(?: ?([A-Z]{3}))?$/;
-var gr = /^\d{1,3}([,. ’]\d{3})*$/; // validate groups
+var currencyMatcher = /^(?:([A-Z]{3}) ?)?(?:([^\d ]+?) ?)?(((?:\d{1,3}([,. ’']))*?\d{1,})(([,.])\d{1,2})?)(?: ?([^\d ]+?))??(?: ?([A-Z]{3}))?$/;
+var gr = /^\d{1,3}([,. ’']\d{3})*$/; // validate groups
 var ind = /^\d{1,2}(,\d{2})*(,\d{3})?$/; // exception for indina number format
 
 module.exports = function parseCurrency (priceStr) {

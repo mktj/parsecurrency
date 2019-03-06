@@ -15,7 +15,9 @@
     "currency",
     "format",
     "utility",
-    "finance"
+    "finance",
+    "parse",
+    "unformat"
   ],
   "devDependencies": {
     "chai": "^3.5.0",

@@ -167,6 +167,19 @@ describe('utils/parseCurrency', () => {
     });
   });
 
+  it('should work with non breaking space separator', () => {
+    expect(parseCurrency('1 234,57 zł')).to.deep.equal({
+      raw: '1 234,57 zł',
+      value: 1234.57,
+      integer: '1 234',
+      decimals: ',57',
+      currency: '',
+      symbol: ' zł',
+      decimalSeparator: ',',
+      groupSeparator: ' '
+    });
+  });
+
   it('should distinguish decimal / group separator', () => {
     expect(parseCurrency('100,00')).to.deep.equal({
       raw: '100,00',

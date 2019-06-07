@@ -21,8 +21,8 @@
   ],
   "devDependencies": {
     "chai": "^4.2.0",
-    "eslint": "^5.15.1",
-    "mocha": "^6.0.2"
+    "eslint": "^5.16.0",
+    "mocha": "^6.1.4"
   },
   "dependencies": {},
   "repository": "mktj/parsecurrency"

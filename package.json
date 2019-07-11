@@ -1,7 +1,7 @@
 {
   "name": "parsecurrency",
   "version": "0.2.3",
-  "description": "Currency string parser utility",
+  "description": "Tiny currency string parser utility",
   "main": "index.js",
   "scripts": {
     "lint": "eslint *.js",
@@ -18,6 +18,9 @@
     "finance",
     "parse",
     "unformat"
+  ],
+  "files": [
+    "index.js"
   ],
   "devDependencies": {
     "chai": "^4.2.0",

@@ -252,6 +252,19 @@ describe('utils/parseCurrency', () => {
     });
   });
 
+  it('should work with leading + trailing spaces', () => {
+    expect(parseCurrency(' 100,00 ')).to.deep.equal({
+      raw: '100,00',
+      value: 100,
+      integer: '100',
+      decimals: ',00',
+      currency: '',
+      symbol: '',
+      decimalSeparator: ',',
+      groupSeparator: ''
+    });
+  });
+
   it('should invalidate non matching number grouping', () => {
     expect(parseCurrency('$ 100,000,0,00.00')).to.equal(null);
   });

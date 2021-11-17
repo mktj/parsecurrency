@@ -4,6 +4,7 @@ var ind = /^\d{1,2}(,\d{2})*(,\d{3})?$/; // exception for Indian number format
 
 module.exports = function parseCurrency (priceStr) {
   if (!priceStr || !priceStr.match) return null;
+  priceStr = priceStr.trim();
   var match = priceStr.match(currencyMatcher);
   if (!match) return null;
   var groupSeparator = match[5] || '';

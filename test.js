@@ -12,7 +12,8 @@ describe('utils/parseCurrency', () => {
       currency: '',
       symbol: '',
       decimalSeparator: '',
-      groupSeparator: ''
+      groupSeparator: '',
+      sign: ''
     });
   });
 
@@ -25,7 +26,8 @@ describe('utils/parseCurrency', () => {
       currency: '',
       symbol: '$',
       decimalSeparator: '',
-      groupSeparator: ''
+      groupSeparator: '',
+      sign: ''
     });
 
     expect(parseCurrency('100$')).to.deep.equal({
@@ -36,7 +38,8 @@ describe('utils/parseCurrency', () => {
       currency: '',
       symbol: '$',
       decimalSeparator: '',
-      groupSeparator: ''
+      groupSeparator: '',
+      sign: ''
     });
   });
 
@@ -49,7 +52,8 @@ describe('utils/parseCurrency', () => {
       currency: 'EUR',
       symbol: '',
       decimalSeparator: '.',
-      groupSeparator: ','
+      groupSeparator: ',',
+      sign: ''
     });
 
     expect(parseCurrency('100 USD')).to.deep.equal({
@@ -60,7 +64,8 @@ describe('utils/parseCurrency', () => {
       currency: 'USD',
       symbol: '',
       decimalSeparator: '',
-      groupSeparator: ''
+      groupSeparator: '',
+      sign: ''
     });
 
     expect(parseCurrency('USD 100')).to.deep.equal({
@@ -71,7 +76,8 @@ describe('utils/parseCurrency', () => {
       currency: 'USD',
       symbol: '',
       decimalSeparator: '',
-      groupSeparator: ''
+      groupSeparator: '',
+      sign: ''
     });
 
     expect(parseCurrency('$100 USD')).to.deep.equal({
@@ -82,7 +88,8 @@ describe('utils/parseCurrency', () => {
       currency: 'USD',
       symbol: '$',
       decimalSeparator: '',
-      groupSeparator: ''
+      groupSeparator: '',
+      sign: ''
     });
 
     expect(parseCurrency('USD $100')).to.deep.equal({
@@ -93,7 +100,8 @@ describe('utils/parseCurrency', () => {
       currency: 'USD',
       symbol: '$',
       decimalSeparator: '',
-      groupSeparator: ''
+      groupSeparator: '',
+      sign: ''
     });
   });
 
@@ -106,7 +114,8 @@ describe('utils/parseCurrency', () => {
       currency: '',
       symbol: '',
       decimalSeparator: '',
-      groupSeparator: ''
+      groupSeparator: '',
+      sign: ''
     });
 
     expect(parseCurrency('100,000,000')).to.deep.equal({
@@ -117,7 +126,8 @@ describe('utils/parseCurrency', () => {
       currency: '',
       symbol: '',
       decimalSeparator: '',
-      groupSeparator: ','
+      groupSeparator: ',',
+      sign: ''
     });
 
     expect(parseCurrency('€10,000.00 EUR')).to.deep.equal({
@@ -128,7 +138,8 @@ describe('utils/parseCurrency', () => {
       currency: 'EUR',
       symbol: '€',
       decimalSeparator: '.',
-      groupSeparator: ','
+      groupSeparator: ',',
+      sign: ''
     });
   });
 
@@ -141,7 +152,8 @@ describe('utils/parseCurrency', () => {
       currency: 'USD',
       symbol: '$',
       decimalSeparator: '.',
-      groupSeparator: ''
+      groupSeparator: '',
+      sign: ''
     });
 
     expect(parseCurrency('€10.000,00 EUR')).to.deep.equal({
@@ -152,7 +164,8 @@ describe('utils/parseCurrency', () => {
       currency: 'EUR',
       symbol: '€',
       decimalSeparator: ',',
-      groupSeparator: '.'
+      groupSeparator: '.',
+      sign: ''
     });
 
     expect(parseCurrency('PLN 10 000,00zł')).to.deep.equal({
@@ -163,7 +176,8 @@ describe('utils/parseCurrency', () => {
       currency: 'PLN',
       symbol: 'zł',
       decimalSeparator: ',',
-      groupSeparator: ' '
+      groupSeparator: ' ',
+      sign: ''
     });
   });
 
@@ -176,7 +190,8 @@ describe('utils/parseCurrency', () => {
       currency: '',
       symbol: ' zł',
       decimalSeparator: ',',
-      groupSeparator: ' '
+      groupSeparator: ' ',
+      sign: ''
     });
   });
 
@@ -189,7 +204,8 @@ describe('utils/parseCurrency', () => {
       currency: '',
       symbol: '',
       decimalSeparator: ',',
-      groupSeparator: ''
+      groupSeparator: '',
+      sign: ''
     });
 
     expect(parseCurrency('100,000')).to.deep.equal({
@@ -200,7 +216,8 @@ describe('utils/parseCurrency', () => {
       currency: '',
       symbol: '',
       decimalSeparator: '',
-      groupSeparator: ','
+      groupSeparator: ',',
+      sign: ''
     });
   });
 
@@ -213,7 +230,8 @@ describe('utils/parseCurrency', () => {
       currency: '',
       symbol: '¥',
       decimalSeparator: '',
-      groupSeparator: ','
+      groupSeparator: ',',
+      sign: ''
     });
 
     expect(parseCurrency('Fr. 578’349’026.76')).to.deep.equal({
@@ -224,7 +242,8 @@ describe('utils/parseCurrency', () => {
       currency: '',
       symbol: 'Fr.',
       decimalSeparator: '.',
-      groupSeparator: '’'
+      groupSeparator: '’',
+      sign: ''
     });
 
     expect(parseCurrency('10\'000 CHF')).to.deep.equal({
@@ -235,7 +254,8 @@ describe('utils/parseCurrency', () => {
       currency: 'CHF',
       symbol: '',
       decimalSeparator: '',
-      groupSeparator: '\''
+      groupSeparator: '\'',
+      sign: ''
     });
   });
 
@@ -248,7 +268,8 @@ describe('utils/parseCurrency', () => {
       integer: '1,50,000',
       raw: '₹1,50,000.00',
       symbol: '₹',
-      value: 150000
+      value: 150000,
+      sign: ''
     });
   });
 
@@ -261,7 +282,8 @@ describe('utils/parseCurrency', () => {
       currency: '',
       symbol: '',
       decimalSeparator: ',',
-      groupSeparator: ''
+      groupSeparator: '',
+      sign: ''
     });
   });
 
@@ -288,5 +310,421 @@ describe('utils/parseCurrency', () => {
     expect(parseCurrency('100..00')).to.equal(null);
     expect(parseCurrency('1,000.000')).to.equal(null);
     expect(parseCurrency('1,000.000,00')).to.equal(null);
+  });
+
+  it('should work with leading positive sign (+)', () => {
+    expect(parseCurrency('+100,00')).to.deep.equal({
+      raw: '+100,00',
+      value: 100,
+      integer: '100',
+      decimals: ',00',
+      currency: '',
+      symbol: '',
+      decimalSeparator: ',',
+      groupSeparator: '',
+      sign: '+'
+    });
+  });
+
+  it('should work with leading positive sign (+) + symbol', () => {
+    expect(parseCurrency('+R$100,00')).to.deep.equal({
+      raw: '+R$100,00',
+      value: 100,
+      integer: '100',
+      decimals: ',00',
+      currency: '',
+      symbol: 'R$',
+      decimalSeparator: ',',
+      groupSeparator: '',
+      sign: '+'
+    });
+  });
+
+  it('should work with leading positive sign (+) + symbol(US$)', () => {
+    expect(parseCurrency('+US$100,00')).to.deep.equal({
+      raw: '+US$100,00',
+      value: 100,
+      integer: '100',
+      decimals: ',00',
+      currency: '',
+      symbol: 'US$',
+      decimalSeparator: ',',
+      groupSeparator: '',
+      sign: '+'
+    });
+  });
+
+  it('should work with leading positive sign (+) + space', () => {
+    expect(parseCurrency('+ 100,00')).to.deep.equal({
+      raw: '+ 100,00',
+      value: 100,
+      integer: '100',
+      decimals: ',00',
+      currency: '',
+      symbol: '',
+      decimalSeparator: ',',
+      groupSeparator: '',
+      sign: '+'
+    });
+  });
+
+  it('should work with leading space + positive sign (+)', () => {
+    expect(parseCurrency(' +100,00')).to.deep.equal({
+      raw: '+100,00',
+      value: 100,
+      integer: '100',
+      decimals: ',00',
+      currency: '',
+      symbol: '',
+      decimalSeparator: ',',
+      groupSeparator: '',
+      sign: '+'
+    });
+  });
+
+  it('should work with leading space + positive sign (+) + space', () => {
+    expect(parseCurrency(' + 100,00')).to.deep.equal({
+      raw: '+ 100,00',
+      value: 100,
+      integer: '100',
+      decimals: ',00',
+      currency: '',
+      symbol: '',
+      decimalSeparator: ',',
+      groupSeparator: '',
+      sign: '+'
+    });
+  });
+
+  it('should work with leading negative sign (-)', () => {
+    expect(parseCurrency('-100,00')).to.deep.equal({
+      raw: '-100,00',
+      value: -100,
+      integer: '-100',
+      decimals: ',00',
+      currency: '',
+      symbol: '',
+      decimalSeparator: ',',
+      groupSeparator: '',
+      sign: '-'
+    });
+  });
+
+  it('should work with leading negative sign (-) + symbol', () => {
+    expect(parseCurrency('-R$100,00')).to.deep.equal({
+      raw: '-R$100,00',
+      value: -100,
+      integer: '-100',
+      decimals: ',00',
+      currency: '',
+      symbol: 'R$',
+      decimalSeparator: ',',
+      groupSeparator: '',
+      sign: '-'
+    });
+  });
+
+  it('should work with leading negative sign (-) + symbol(US$)', () => {
+    expect(parseCurrency('-US$100,00')).to.deep.equal({
+      raw: '-US$100,00',
+      value: -100,
+      integer: '-100',
+      decimals: ',00',
+      currency: '',
+      symbol: 'US$',
+      decimalSeparator: ',',
+      groupSeparator: '',
+      sign: '-'
+    });
+  });
+
+  it('should work with leading negative sign (-) + space', () => {
+    expect(parseCurrency('- 100,00')).to.deep.equal({
+      raw: '- 100,00',
+      value: -100,
+      integer: '-100',
+      decimals: ',00',
+      currency: '',
+      symbol: '',
+      decimalSeparator: ',',
+      groupSeparator: '',
+      sign: '-'
+    });
+  });
+
+  it('should work with leading space + negative sign (+) + space', () => {
+    expect(parseCurrency(' - 100,00')).to.deep.equal({
+      raw: '- 100,00',
+      value: -100,
+      integer: '-100',
+      decimals: ',00',
+      currency: '',
+      symbol: '',
+      decimalSeparator: ',',
+      groupSeparator: '',
+      sign: '-'
+    });
+  });
+
+
+  it('should work with real world positive (¥) example', () => {
+    expect(parseCurrency('+¥578,349,027')).to.deep.equal({
+      raw: '+¥578,349,027',
+      value: 578349027,
+      integer: '578,349,027',
+      decimals: '',
+      currency: '',
+      symbol: '¥',
+      decimalSeparator: '',
+      groupSeparator: ',',
+      sign: '+'
+    });
+  });
+
+  it('should work with real world negative (¥) example', () => {
+    expect(parseCurrency('-¥578,349,027')).to.deep.equal({
+      raw: '-¥578,349,027',
+      value: -578349027,
+      integer: '-578,349,027',
+      decimals: '',
+      currency: '',
+      symbol: '¥',
+      decimalSeparator: '',
+      groupSeparator: ',',
+      sign: '-'
+    });
+  });
+
+  it('should work with real world negative (Fr.) example', () => {
+    expect(parseCurrency('-Fr. 578’349’026.76')).to.deep.equal({
+      raw: '-Fr. 578’349’026.76',
+      value: -578349026.76,
+      integer: '-578’349’026',
+      decimals: '.76',
+      currency: '',
+      symbol: 'Fr.',
+      decimalSeparator: '.',
+      groupSeparator: '’',
+      sign: '-'
+    });
+  });
+
+  it('should work with real world positive (Fr.) example', () => {
+    expect(parseCurrency('+Fr. 578’349’026.76')).to.deep.equal({
+      raw: '+Fr. 578’349’026.76',
+      value: 578349026.76,
+      integer: '578’349’026',
+      decimals: '.76',
+      currency: '',
+      symbol: 'Fr.',
+      decimalSeparator: '.',
+      groupSeparator: '’',
+      sign: '+'
+    });
+  });
+
+  it('should work with real world negative (CHF) example', () => {
+    expect(parseCurrency('-10\'000 CHF')).to.deep.equal({
+      raw: '-10\'000 CHF',
+      value: -10000,
+      integer: '-10\'000',
+      decimals: '',
+      currency: 'CHF',
+      symbol: '',
+      decimalSeparator: '',
+      groupSeparator: '\'',
+      sign: '-'
+    });
+  });
+
+  it('should work with real world positive (CHF) example', () => {
+    expect(parseCurrency('+10\'000 CHF')).to.deep.equal({
+      raw: '+10\'000 CHF',
+      value: 10000,
+      integer: '10\'000',
+      decimals: '',
+      currency: 'CHF',
+      symbol: '',
+      decimalSeparator: '',
+      groupSeparator: '\'',
+      sign: '+'
+    });
+  });
+
+  it('should parse strings with currency symbol (negative)', () => {
+    expect(parseCurrency('-$100')).to.deep.equal({
+      raw: '-$100',
+      value: -100,
+      integer: '-100',
+      decimals: '',
+      currency: '',
+      symbol: '$',
+      decimalSeparator: '',
+      groupSeparator: '',
+      sign: '-'
+    });
+
+    expect(parseCurrency('-100$')).to.deep.equal({
+      raw: '-100$',
+      value: -100,
+      integer: '-100',
+      decimals: '',
+      currency: '',
+      symbol: '$',
+      decimalSeparator: '',
+      groupSeparator: '',
+      sign: '-'
+    });
+  });
+
+  it('should parse strings with currency ISO code (negative)', () => {
+    expect(parseCurrency('-160,000.00 EUR')).to.deep.equal({
+      raw: '-160,000.00 EUR',
+      value: -160000.00,
+      integer: '-160,000',
+      decimals: '.00',
+      currency: 'EUR',
+      symbol: '',
+      decimalSeparator: '.',
+      groupSeparator: ',',
+      sign: '-'
+    });
+
+    expect(parseCurrency('-100 USD')).to.deep.equal({
+      raw: '-100 USD',
+      value: -100,
+      integer: '-100',
+      decimals: '',
+      currency: 'USD',
+      symbol: '',
+      decimalSeparator: '',
+      groupSeparator: '',
+      sign: '-'
+    });
+
+    expect(parseCurrency('-USD 100')).to.deep.equal({
+      raw: '-USD 100',
+      value: -100,
+      integer: '-100',
+      decimals: '',
+      currency: 'USD',
+      symbol: '',
+      decimalSeparator: '',
+      groupSeparator: '',
+      sign: '-'
+    });
+
+    expect(parseCurrency('-$100 USD')).to.deep.equal({
+      raw: '-$100 USD',
+      value: -100,
+      integer: '-100',
+      decimals: '',
+      currency: 'USD',
+      symbol: '$',
+      decimalSeparator: '',
+      groupSeparator: '',
+      sign: '-'
+    });
+
+    expect(parseCurrency('-USD $100')).to.deep.equal({
+      raw: '-USD $100',
+      value: -100,
+      integer: '-100',
+      decimals: '',
+      currency: 'USD',
+      symbol: '$',
+      decimalSeparator: '',
+      groupSeparator: '',
+      sign: '-'
+    });
+  });
+
+  
+  it('should parse strings with currency symbol (positive)', () => {
+    expect(parseCurrency('+$100')).to.deep.equal({
+      raw: '+$100',
+      value: 100,
+      integer: '100',
+      decimals: '',
+      currency: '',
+      symbol: '$',
+      decimalSeparator: '',
+      groupSeparator: '',
+      sign: '+'
+    });
+
+    expect(parseCurrency('+100$')).to.deep.equal({
+      raw: '+100$',
+      value: 100,
+      integer: '100',
+      decimals: '',
+      currency: '',
+      symbol: '$',
+      decimalSeparator: '',
+      groupSeparator: '',
+      sign: '+'
+    });
+  });
+
+  it('should parse strings with currency ISO code (positive)', () => {
+    expect(parseCurrency('+160,000.00 EUR')).to.deep.equal({
+      raw: '+160,000.00 EUR',
+      value: 160000.00,
+      integer: '160,000',
+      decimals: '.00',
+      currency: 'EUR',
+      symbol: '',
+      decimalSeparator: '.',
+      groupSeparator: ',',
+      sign: '+'
+    });
+
+    expect(parseCurrency('+100 USD')).to.deep.equal({
+      raw: '+100 USD',
+      value: 100,
+      integer: '100',
+      decimals: '',
+      currency: 'USD',
+      symbol: '',
+      decimalSeparator: '',
+      groupSeparator: '',
+      sign: '+'
+    });
+
+    expect(parseCurrency('+USD 100')).to.deep.equal({
+      raw: '+USD 100',
+      value: 100,
+      integer: '100',
+      decimals: '',
+      currency: 'USD',
+      symbol: '',
+      decimalSeparator: '',
+      groupSeparator: '',
+      sign: '+'
+    });
+
+    expect(parseCurrency('+$100 USD')).to.deep.equal({
+      raw: '+$100 USD',
+      value: 100,
+      integer: '100',
+      decimals: '',
+      currency: 'USD',
+      symbol: '$',
+      decimalSeparator: '',
+      groupSeparator: '',
+      sign: '+'
+    });
+
+    expect(parseCurrency('+USD $100')).to.deep.equal({
+      raw: '+USD $100',
+      value: 100,
+      integer: '100',
+      decimals: '',
+      currency: 'USD',
+      symbol: '$',
+      decimalSeparator: '',
+      groupSeparator: '',
+      sign: '+'
+    });
   });
 });

@@ -31,28 +31,28 @@ const parseCurrency = require('parsecurrency');
 const example1 = parseCurrency('$123,456.99USD');
 // example1 =>
 {
-  "raw": "$123,456.99USD",
-  "value": 123456.99,
-  "integer": "123,456",
-  "decimals": ".99",
-  "currency": "USD",
-  "symbol": "$",
-  "decimalSeparator": ".",
-  "groupSeparator": ",",
-  "sign": ""
+  raw: '$123,456.99USD',
+  value: 123456.99,
+  integer: '123,456',
+  decimals: '.99',
+  currency: 'USD',
+  symbol: '$',
+  decimalSeparator: '.',
+  groupSeparator: ',',
+  sign: ''
 }
 const example2 = parseCurrency('-¥578,349,027');
 // example2 =>
 {
-  "raw": '-¥578,349,027',
-  "value": -578349027,
-  "integer": '-578,349,027',
-  "decimals": '',
-  "currency": '',
-  "symbol": '¥',
-  "decimalSeparator": '',
-  "groupSeparator": ',',
-  "sign": '-'
+  raw: '-¥578,349,027',
+  value: -578349027,
+  integer: '-578,349,027',
+  decimals: '',
+  currency: '',
+  symbol: '¥',
+  decimalSeparator: '',
+  groupSeparator: ',',
+  sign: '-'
 }
 
 ```

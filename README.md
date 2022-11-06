@@ -1,5 +1,5 @@
 # parsecurrency
-[![Build Status](https://travis-ci.org/mktj/parsecurrency.svg?branch=master)](https://travis-ci.org/mktj/parsecurrency)
+![Build Status](https://github.com/mktj/parsecurrency/actions/workflows/test.yml/badge.svg)
 [![npm version](http://img.shields.io/npm/v/parsecurrency.svg?style=flat)](https://npmjs.org/package/parsecurrency "View this project on npm")
 
 

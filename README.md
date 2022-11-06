@@ -39,7 +39,7 @@ const parsedCurrency = parseCurrency('$123,456.99USD');
   "symbol": "$",
   "decimalSeparator": ".",
   "groupSeparator": ",",
-  "signal": ""
+  "sign": ""
 }
 
 const parsedCurrency = parseCurrency('-$123,456.99USD');
@@ -53,7 +53,7 @@ const parsedCurrency = parseCurrency('-$123,456.99USD');
   "symbol": "$",
   "decimalSeparator": ".",
   "groupSeparator": ",",
-  "signal": "-"
+  "sign": "-"
 }
 
 const parsedCurrency = parseCurrency('+$123,456.99USD');
@@ -67,7 +67,7 @@ const parsedCurrency = parseCurrency('+$123,456.99USD');
   "symbol": "$",
   "decimalSeparator": ".",
   "groupSeparator": ",",
-  "signal": "+"
+  "sign": "+"
 }
 
 ```

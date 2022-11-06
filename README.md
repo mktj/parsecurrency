@@ -5,7 +5,7 @@
 
 Node / browser currency parser.
 
-Extensive currency parsing utility designed to extract value, decimal separator, group separator, currency symbol and iso code from currency string. It should work with most world [currency formats][1] except:
+Extensive currency parsing utility designed to extract value, decimal separator, group separator, currency symbol, iso code and signal from currency string. It should work with most world [currency formats][1] except:
 - currencies with 3 decimals
 - currency with 2 character group separator (Swaziland Lilangeni)
 
@@ -15,6 +15,7 @@ Works with:
 - parsing CHF Swiss Franc (9'000.00 CHF)
 - currency symbols as a prefix / suffix with or without a space
 - currency code before or after the value, with or without space
+- positive and negative signs (before the currency)
 
 ## Install
 
@@ -37,7 +38,36 @@ const parsedCurrency = parseCurrency('$123,456.99USD');
   "currency": "USD",
   "symbol": "$",
   "decimalSeparator": ".",
-  "groupSeparator": ","
+  "groupSeparator": ",",
+  "sign": ""
+}
+
+const parsedCurrency = parseCurrency('-$123,456.99USD');
+// parsedCurrency =>
+{
+  "raw": "-$123,456.99USD",
+  "value": -123456.99,
+  "integer": "-123,456",
+  "decimals": ".99",
+  "currency": "USD",
+  "symbol": "$",
+  "decimalSeparator": ".",
+  "groupSeparator": ",",
+  "sign": "-"
+}
+
+const parsedCurrency = parseCurrency('+$123,456.99USD');
+// parsedCurrency =>
+{
+  "raw": "+$123,456.99USD",
+  "value": 123456.99,
+  "integer": "123,456",
+  "decimals": ".99",
+  "currency": "USD",
+  "symbol": "$",
+  "decimalSeparator": ".",
+  "groupSeparator": ",",
+  "sign": "+"
 }
 
 ```

@@ -727,4 +727,32 @@ describe('utils/parseCurrency', () => {
       sign: '+'
     });
   });
+
+  it('should parse french number format', () => {
+    expect(parseCurrency('1 234,56 $US')).to.deep.equal({
+      raw: '1 234,56 $US',
+      value: 1234.56,
+      integer: '1 234',
+      decimals: ',56',
+      currency: '',
+      symbol: ' $US',
+      decimalSeparator: ',',
+      groupSeparator: ' ',
+      sign: ''
+    });
+  });
+
+  it('should parse brazilian format USD', () => {
+    expect(parseCurrency('1 234,56 $ SU')).to.deep.equal({
+      raw: '1 234,56 $ SU',
+      value: 1234.56,
+      integer: '1 234',
+      decimals: ',56',
+      currency: '',
+      symbol: ' $ SU',
+      decimalSeparator: ',',
+      groupSeparator: ' ',
+      sign: ''
+    });
+  });
 });

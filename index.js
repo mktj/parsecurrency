@@ -1,5 +1,5 @@
-var currencyMatcher = /^(?:([-+]{1}) ?)?(?:([A-Z]{3}) ?)?(?:([^\d ]+?) ?)?(((?:\d{1,3}([,. ’'\u00A0]))*?\d{1,})(([,.])\d{1,2})?)(?: ?([^\d ]+?))??(?: ?([A-Z]{3}))?$/;
-var gr = /^\d{1,3}([,. ’'\u00A0]\d{3})*$/; // validate groups
+var currencyMatcher = /^(?:([-+]{1}) ?)?(?:([A-Z]{3}) ?)?(?:([^\d ]+?) ?)?(((?:\d{1,3}([,. ’'\u00A0\u202F]))*?\d{1,})(([,.])\d{1,2})?)(?: ?([^\d]+?))??(?: ?([A-Z]{3}))?$/;
+var gr = /^\d{1,3}([,. ’'\u00A0\u202F]\d{3})*$/; // validate groups
 var ind = /^\d{1,2}(,\d{2})*(,\d{3})?$/; // exception for Indian number format
 
 module.exports = function parseCurrency(priceStr) {
@@ -12,7 +12,7 @@ module.exports = function parseCurrency(priceStr) {
   if (groupSeparator === decimalSeparator && decimalSeparator) {
     return null;
   }
-  var integer = match[1] == '-' ? '-' + match[5] : match[5];
+  var integer = match[1] === '-' ? '-' + match[5] : match[5];
   if (groupSeparator && !match[5].match(gr) && !match[5].match(ind)) {
     return null;
   }
@@ -24,7 +24,7 @@ module.exports = function parseCurrency(priceStr) {
   if (decimalSeparator) {
     value = value.replace(decimalSeparator, '.');
   }
-  var numericVal = match[1] == '-' ? value * -1 : +value;
+  var numericVal = match[1] === '-' ? value * -1 : +value;
   if (typeof numericVal !== 'number' || isNaN(numericVal)) {
     return null;
   }

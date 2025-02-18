@@ -452,6 +452,20 @@ describe('utils/parseCurrency', () => {
     });
   });
 
+  it('should work with negative sign (-) post sybmol space', () => {
+    expect(parseCurrency('€ -1,500.00 EUR')).to.deep.equal({
+      raw: '€ -1,500.00 EUR',
+      value: -1500,
+      integer: '-1,500',
+      decimals: '.00',
+      currency: 'EUR',
+      symbol: '€',
+      decimalSeparator: '.',
+      groupSeparator: ',',
+      sign: '-'
+    });
+  });
+
   it('should work with leading space + negative sign (+) + space', () => {
     expect(parseCurrency(' - 100,00')).to.deep.equal({
       raw: '- 100,00',

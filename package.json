@@ -1,6 +1,6 @@
 {
   "name": "parsecurrency",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Tiny currency string parser utility",
   "main": "index.js",
   "scripts": {

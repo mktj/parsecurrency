@@ -11,6 +11,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+## [1.1.1] - 2025-02-18
+
+### Added
+
+- Support for positive/negative between currency symbol and integar value https://github.com/mktj/parsecurrency/pull/13
+
+### Changed
+
+- Dev dependency updates
+
 ## [1.1.0] - 2022-11-06
 
 ### Added 

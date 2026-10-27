@@ -7,15 +7,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-### Added 
+## [1.1.2] - 2026-10-27
 
-### Fixed
+### Added
+
+- LICENSE file to the published package (license remains MIT)
+
+### Changed
+
+- Dev dependency updates
+- Dropped dependency on mocha/chai, replaced with node builtins `assert` and `node:test`, CI now tests on node 4+
 
 ## [1.1.1] - 2025-02-18
 
 ### Added
 
-- Support for positive/negative between currency symbol and integar value https://github.com/mktj/parsecurrency/pull/13
+- Support for positive/negative between currency symbol and integer value https://github.com/mktj/parsecurrency/pull/13
 
 ### Changed
 
@@ -23,7 +30,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [1.1.0] - 2022-11-06
 
-### Added 
+### Added
 
 - Support for positive/negative number prefix https://github.com/mktj/parsecurrency/pull/11
 - Support for french number format (narrow no-break space group separator)
@@ -43,7 +50,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Parse currency strings with trailing spaces https://github.com/mktj/parsecurrency/pull/7
 
-## [1.0.0] - 2019-06-11
+## [1.0.0] - 2019-07-11
 
 ### Added
 
